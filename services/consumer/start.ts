@@ -11,12 +11,12 @@ import { KafkaManager } from "./ports/kafka";
 const socketHandler = new SocketHandler(Socket.get("socket-1"));
 
 const topics = {
-  example: {
+  "example-app": {
     eventHandler: new ExampleConsumerHandler({
       socket: socketHandler,
-      worker: Worker.get("fishing"),
+      worker: Worker.get("example"),
     }),
-    groupId: "river-1",
+    groupId: "example-app",
   },
 };
 
@@ -71,6 +71,6 @@ async function start(kafkaHandler: KafkaHandler, consumers: Consumers) {
   );
 }
 
-start(new KafkaHandler(KafkaManager.get("fishing-app")), topics).then(
+start(new KafkaHandler(KafkaManager.get("example-app")), topics).then(
   (message) => CLogger.info(message)
 );

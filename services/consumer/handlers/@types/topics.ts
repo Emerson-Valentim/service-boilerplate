@@ -1,3 +1,3 @@
 export enum Topics {
-  EXAMPLE = "example"
+  "EXAMPLE-APP" = "example-app"
 }

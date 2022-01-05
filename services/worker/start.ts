@@ -14,7 +14,7 @@ const socketHandler = new SocketHandler(Socket.get("socket-1"));
 const workers: Workers = {
   example: {
     workerHandler: new ExampleWorkerHandler(
-      { queueName: "payment" },
+      { queueName: "example" },
       RedisManager.get(RedisInstances["REDIS-1"])
     ),
     dependencies: {

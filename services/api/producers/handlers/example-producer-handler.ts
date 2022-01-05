@@ -3,11 +3,12 @@ import { KafkaProducerRecord } from "../@types/message-payload";
 
 export default class ExampleProducerHandler extends BaseProducerHandler {
   public static async send(record: KafkaProducerRecord): Promise<void> {
+
     const producer = await ExampleProducerHandler.kafkaHandler.getProducer();
 
     await producer.send({
       ...record,
-      topic: "river"
+      topic: "example-app"
     });
 
     await producer.disconnect();
