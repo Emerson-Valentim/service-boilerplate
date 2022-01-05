@@ -12,10 +12,14 @@ const io = new Server(httpServer, {
 
 io.on("connection", (socket) => {
   socket.on("server:example", (message) => {
+    CLogger.info("Reached event server:example");
+
     io.emit("client:example", message);
   });
 
   socket.on("server:example:job:done", (message) => {
+    CLogger.info("Reached event server:example:job:done");
+
     io.emit("client:example:job:done", message);
   });
 });
