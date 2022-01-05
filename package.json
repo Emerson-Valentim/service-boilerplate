@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "libs": "./scripts/update-libs.sh",
     "compile:all": "./scripts/compile-all.sh",
-    "start": "yarn workspaces run start:docker"
+    "start": "./scripts/run-all.sh",
+    "down": "./scripts/down-all.sh"
   },
   "workspaces": [
     "services/*"
