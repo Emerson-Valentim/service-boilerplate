@@ -19,7 +19,7 @@ services:
     networks:
       - worker
     volumes:
-      - ./:/home/ubuntu
+      - ./build:/home/ubuntu/build
     command: yarn start:local
     depends_on:
       - redis

@@ -10,7 +10,7 @@ services:
     networks:
       - api
     volumes:
-      - ./:/home/ubuntu
+      - ./build:/home/ubuntu/build
     command: yarn start:local
     ports:
       - "4000:4000"

@@ -10,7 +10,7 @@ services:
     networks:
       - socket
     volumes:
-      - ./:/home/ubuntu
+      - ./build:/home/ubuntu/build
     command: yarn start:local
     ports:
       - "3000:3000"
