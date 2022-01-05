@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  #Client configuration
+  api:
+    build:
+      context: ./
+    env_file:
+      - .env
+    networks:
+      - api
+    volumes:
+      - ./:/home/ubuntu
+    command: yarn start:local
+    ports:
+      - "4000:4000"
+
+networks:
+  api:
+    driver: bridge
