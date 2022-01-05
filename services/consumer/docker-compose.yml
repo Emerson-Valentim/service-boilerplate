@@ -1,0 +1,65 @@
+version: "3.8"
+
+services:
+  # Zookeeper configuration
+  zookeeper:
+    image: confluentinc/cp-zookeeper:5.4.6
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - consumer
+
+  # Kafka configuration
+  kafka:
+    image: confluentinc/cp-kafka:5.4.6
+    networks:
+      - consumer
+    ports:
+      - "9092:9092"
+      - "9094:9094"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_LISTENERS: INTERNAL://:9092,OUTSIDE://:9094
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,OUTSIDE://host.docker.internal:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,OUTSIDE:PLAINTEXT
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+    depends_on:
+      - zookeeper
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "kafka-topics --list --bootstrap-server localhost:9092",
+        ]
+      interval: 20s
+      timeout: 120s
+      retries: 5
+
+  #Client configuration
+  consumer:
+    build:
+      context: ./
+    env_file:
+      - .env
+    networks:
+      - consumer
+    volumes:
+      - ./:/home/ubuntu
+    command: yarn start:local
+    depends_on:
+      kafka:
+        condition: service_healthy
+
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
+
+networks:
+  consumer:
+    driver: bridge
