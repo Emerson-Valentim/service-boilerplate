@@ -1,0 +1,29 @@
+{
+  "name": "event-boilerplate",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Boilerplate for building microservice following an architecture pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "libs": "./scripts/update-libs.sh",
+    "compile:all": "./scripts/compile-all.sh",
+    "start": "yarn workspaces run start:docker"
+  },
+  "workspaces": [
+    "services/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emerson-Valentim/event-boilerplate.git"
+  },
+  "keywords": [
+    "events"
+  ],
+  "author": "Emerson-Valentim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emerson-Valentim/event-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Emerson-Valentim/event-boilerplate#readme"
+}
