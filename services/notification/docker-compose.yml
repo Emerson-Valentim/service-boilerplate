@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  #Client configuration
+  socket:
+    build:
+      context: ./
+    env_file:
+      - .env
+    networks:
+      - socket
+    volumes:
+      - ./:/home/ubuntu
+    command: yarn start:local
+    ports:
+      - "3000:3000"
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+networks:
+  socket:
+    driver: bridge
