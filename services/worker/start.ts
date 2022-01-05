@@ -1,4 +1,4 @@
-import { CLogger } from "fishing-tools";
+import { CLogger } from "evs-tools";
 
 import { Workers } from "./handlers/@types/workers";
 

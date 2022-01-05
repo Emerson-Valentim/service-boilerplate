@@ -1,4 +1,4 @@
-import { Managers } from "fishing-tools";
+import { Managers } from "evs-tools";
 
 Managers.KafkaManager.add([
   {

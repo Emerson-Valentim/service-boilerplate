@@ -1,5 +1,5 @@
-import { CLogger } from "fishing-tools";
-import LibSocketHandler from "fishing-tools/dist/app/connectors/socket/handler";
+import { CLogger } from "evs-tools";
+import LibSocketHandler from "evs-tools/dist/app/connectors/socket/handler";
 export default class SocketHandler extends LibSocketHandler {
   public async emit<T>({
     channel,

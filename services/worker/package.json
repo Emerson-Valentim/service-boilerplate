@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "bullmq": "^1.63.0",
-    "fishing-tools": "^0.0.16",
+    "evs-tools": "^0.0.1",
     "ioredis": "^4.28.2",
     "ramda": "^0.27.1"
   }

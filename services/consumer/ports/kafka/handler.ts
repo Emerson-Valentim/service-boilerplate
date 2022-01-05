@@ -1,6 +1,6 @@
 import { Consumer } from "kafkajs";
 
-import LibKafkaHandler from "fishing-tools/dist/app/connectors/kafka/handler";
+import LibKafkaHandler from "evs-tools/dist/app/connectors/kafka/handler";
 
 export default class KafkaHandler extends LibKafkaHandler {
   public async getConsumer(

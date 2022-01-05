@@ -1,4 +1,4 @@
-import { WorkerHandler } from "fishing-tools/dist/app/connectors/worker/handler";
+import { WorkerHandler } from "evs-tools/dist/app/connectors/worker/handler";
 
 import { CLogger } from "../ports/logger";
 import SocketHandler from "../ports/socket/handler";

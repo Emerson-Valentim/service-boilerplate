@@ -21,7 +21,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "fishing-tools": "^0.0.16",
+    "evs-tools": "^0.0.1",
     "ramda": "^0.27.1",
     "socket.io": "^4.4.0"
   },
