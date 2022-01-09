@@ -12,7 +12,6 @@ env:
   ECR_ALIAS: main
   ENV: stg
 
-
 jobs:
   deploy-consumer:
     if: true
