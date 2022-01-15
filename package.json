@@ -13,7 +13,8 @@
   },
   "workspaces": {
     "packages": [
-      "services/*"
+      "services/*",
+      "packages/*"
     ],
     "nohoist": [
       "**"
