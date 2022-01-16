@@ -1,11 +1,13 @@
 FROM node:lts-alpine
 
+ARG SERVICE=worker
+
+WORKDIR /home/ubuntu/services/$SERVICE
+COPY services/$SERVICE/package.json .
+
 WORKDIR /home/ubuntu
-
 COPY package.json .
-
-COPY build ./build
-
-RUN yarn install
+COPY packages packages
+RUN yarn --production
 
 CMD tail -f /dev/null
