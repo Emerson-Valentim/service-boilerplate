@@ -48,7 +48,7 @@ jobs:
           ECR_REPOSITORY: ${{ env.ECR_ALIAS }}-${{ env.ENV }}
           IMAGE_NAME: ${{ env.SERVICE }}-${{ env.APPLICATION }}-${{ env.ENV }}
         run: |
-          yarn docker:build -s ${{ env.APPLICATION }} -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest .
+          docker build -f ./services/${{ env.APPLICATION }}/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest"
 
@@ -107,7 +107,7 @@ jobs:
           ECR_REPOSITORY: ${{ env.ECR_ALIAS }}-${{ env.ENV }}
           IMAGE_NAME: ${{ env.SERVICE }}-${{ env.APPLICATION }}-${{ env.ENV }}
         run: |
-          yarn docker:build -s ${{ env.APPLICATION }} -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest .
+          docker build -f ./services/${{ env.APPLICATION }}/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest"
 
@@ -166,7 +166,7 @@ jobs:
           ECR_REPOSITORY: ${{ env.ECR_ALIAS }}-${{ env.ENV }}
           IMAGE_NAME: ${{ env.SERVICE }}-${{ env.APPLICATION }}-${{ env.ENV }}
         run: |
-          yarn docker:build -s ${{ env.APPLICATION }} -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest .
+          docker build -f ./services/${{ env.APPLICATION }}/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_NAME }}_latest"
 
