@@ -3,7 +3,7 @@ FROM node:lts-alpine
 ARG SERVICE=consumer
 
 WORKDIR /home/ubuntu/services/$SERVICE
-COPY services/$SERVICE/build .
+COPY services/$SERVICE/build ./build
 COPY services/$SERVICE/package.json .
 
 WORKDIR /home/ubuntu
