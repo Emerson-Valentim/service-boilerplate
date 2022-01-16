@@ -1,3 +1,6 @@
 import Server from "./config/server";
+import ExampleSocketHandler from "./handlers/example-socket-handler";
 
-Server.local();
+Server.start([
+  new ExampleSocketHandler()
+]);

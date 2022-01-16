@@ -5,6 +5,7 @@ import { createAdapter } from "@socket.io/redis-adapter";
 import { createClient } from "redis";
 
 import { CLogger } from "../ports/logger";
+import BaseSocketHandler from "../handlers/@types/base-socket-handler";
 
 export default class Server {
   protected static httpClient = createServer();
@@ -12,10 +13,10 @@ export default class Server {
     cors: { origin: "*", methods: ["GET", "POST"] },
   });
 
-  public static async local() {
+  public static async start(handlers: BaseSocketHandler<unknown>[]) {
     await Server.adapter();
 
-    Server.register();
+    Server.register(handlers);
 
     Server.httpClient.listen(3000, () =>
       CLogger.info(`🥸 Server running on http://localhost:3000/`)
@@ -35,18 +36,10 @@ export default class Server {
     Server.socketIO.adapter(createAdapter(pubClient, subClient));
   }
 
-  private static register() {
+  private static register(handlers: BaseSocketHandler<unknown>[]) {
     Server.socketIO.on("connection", (socket) => {
-      socket.on("server:example", (message) => {
-        CLogger.info("Reached event server:example");
-
-        Server.socketIO.emit("client:example", message);
-      });
-
-      socket.on("server:example:job:done", (message) => {
-        CLogger.info("Reached event server:example:job:done");
-
-        Server.socketIO.emit("client:example:job:done", message);
+      handlers.forEach(handler => {
+        handler.setup(Server.socketIO, socket);
       });
     });
   }
