@@ -1,6 +1,6 @@
-ARG SERVICE=consumer
-
 FROM node:lts-alpine
+
+ARG SERVICE=consumer
 
 WORKDIR /home/ubuntu/services/$SERVICE
 COPY services/$SERVICE/package.json .

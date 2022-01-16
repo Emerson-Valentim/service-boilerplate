@@ -1,3 +1,5 @@
+up: consumer worker api notification
+
 worker: redis bull
 
 consumer: kafka zookeeper app

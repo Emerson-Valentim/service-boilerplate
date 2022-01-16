@@ -1,6 +1,6 @@
-ARG SERVICE=api
-
 FROM node:lts-alpine
+
+ARG SERVICE=api
 
 WORKDIR /home/ubuntu/services/$SERVICE
 COPY services/$SERVICE/package.json .

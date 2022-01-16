@@ -8,8 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "libs": "./scripts/update-libs.sh",
     "compile:all": "./scripts/compile-all.sh",
-    "start": "./scripts/run-all.sh",
-    "down": "./scripts/down-all.sh"
+    "docker:build": "./scripts/build.sh"
   },
   "workspaces": {
     "packages": [
