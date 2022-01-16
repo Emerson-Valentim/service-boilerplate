@@ -6,7 +6,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker:build": "./scripts/build.sh"
+    "docker:build": "./scripts/build.sh",
+    "start:consumer": "yarn workspace @event-boilerplate/consumer start:local",
+    "start:worker": "yarn workspace @event-boilerplate/worker start:local",
+    "start:notification": "yarn workspace @event-boilerplate/notification start:local"
   },
   "workspaces": {
     "packages": [

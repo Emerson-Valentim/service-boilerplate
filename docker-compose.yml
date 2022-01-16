@@ -51,7 +51,7 @@ services:
     volumes:
       - ./services/consumer/build:/home/ubuntu/services/consumer/build
       - ./services/consumer/node_modules:/home/ubuntu/services/consumer/node_modules
-    command: yarn workspace @event-boilerplate/consumer start:local
+    command: yarn workspace @event-boilerplate/consumer start:server
     depends_on:
       kafka:
         condition: service_healthy
@@ -69,7 +69,7 @@ services:
     volumes:
       - ./services/api/build:/home/ubuntu/services/api/build
       - ./services/api/node_modules:/home/ubuntu/services/api/node_modules
-    command: yarn workspace @event-boilerplate/api start:local
+    command: yarn workspace @event-boilerplate/api start:server
     ports:
       - "4000:4000"
     depends_on:
@@ -88,7 +88,7 @@ services:
     volumes:
       - ./services/notification/build:/home/ubuntu/services/notification/build
       - ./services/notification/node_modules:/home/ubuntu/services/notification/node_modules
-    command: yarn workspace @event-boilerplate/notification start:local
+    command: yarn workspace @event-boilerplate/notification start:server
     ports:
       - "3000:3000"
     extra_hosts:
@@ -114,7 +114,7 @@ services:
     volumes:
       - ./services/worker/build:/home/ubuntu/services/worker/build
       - ./services/worker/node_modules:/home/ubuntu/services/worker/node_modules
-    command: yarn workspace @event-boilerplate/worker start:local
+    command: yarn workspace @event-boilerplate/worker start:server
     depends_on:
       - redis
 

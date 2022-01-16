@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start:local": "nodemon build/start.js",
-    "start:docker": "make worker",
+    "start:server": "nodemon build/start.js",
     "compile": "yarn tsc",
     "compile:watch": "tsc --watch"
   },
