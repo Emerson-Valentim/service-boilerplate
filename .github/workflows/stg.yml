@@ -36,11 +36,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Install dependencies
-        run: |
-          yarn
-          yarn add typescript
-
       - name: Compile project
         run: |
           yarn workspace @event-boilerplate/${{ env.APPLICATION }} compile
@@ -99,11 +94,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Install dependencies
-        run: |
-          yarn
-          yarn add typescript
-
       - name: Compile project
         run: |
           yarn workspace @event-boilerplate/${{ env.APPLICATION }} compile
@@ -161,11 +151,6 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Install dependencies
-        run: |
-          yarn
-          yarn add typescript
 
       - name: Compile project
         run: |
