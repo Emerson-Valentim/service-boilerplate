@@ -56,6 +56,7 @@ services:
       kafka:
         condition: service_healthy
       redis:
+        condition: service_healthy
 
   #API configuration
   api:
@@ -99,8 +100,14 @@ services:
     image: redis
     ports:
       - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
     networks:
       - worker
+      - socket
 
   #Worker configuration
   bull:
