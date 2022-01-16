@@ -36,8 +36,9 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Install typescript
+      - name: Install dependencies
         run: |
+          yarn
           yarn add typescript
 
       - name: Compile project
@@ -80,11 +81,6 @@ jobs:
 
     env:
       APPLICATION: worker
-      WORKING_DIRECTORY: ./services/worker
-
-    defaults:
-      run:
-        working-directory: ${{ env.WORKING_DIRECTORY }}
 
     runs-on: ubuntu-latest
 
@@ -103,8 +99,9 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Install typescript
+      - name: Install dependencies
         run: |
+          yarn
           yarn add typescript
 
       - name: Compile project
@@ -165,8 +162,9 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Install typescript
+      - name: Install dependencies
         run: |
+          yarn
           yarn add typescript
 
       - name: Compile project
@@ -204,7 +202,7 @@ jobs:
           cluster: ${{ env.SERVICE }}-${{ env.ENV }}
           wait-for-service-stability: true
 
-  deploy-api:
+  deploy-lambda:
     if: true
 
     env:
