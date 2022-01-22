@@ -1,7 +1,7 @@
-import { Socket } from "socket.io";
+import { Server, Socket } from "socket.io";
 
 export default abstract class BaseSocketHandler<EventMapping> {
-  protected io!: any;
+  protected io!: Server;
   protected socket!: Socket<EventMapping, EventMapping, EventMapping>;
 
   public setup(io: any, socket: Socket<EventMapping, EventMapping, EventMapping>) {
