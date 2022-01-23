@@ -8,7 +8,9 @@ import { CLogger } from "../ports/logger";
 import BaseSocketHandler from "../handlers/@types/base-socket-handler";
 
 export default class Server {
-  protected static httpClient = createServer();
+  protected static httpClient = createServer((_, res) => {
+    res.end("Server health");
+  });
   protected static socketIO = new SocketServer(Server.httpClient, {
     cors: { origin: "*", methods: ["GET", "POST"] },
   });
