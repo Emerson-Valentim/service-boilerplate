@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "bullmq": "^1.63.0",
-    "evs-tools": "^0.0.1",
+    "evs-tools": "^0.0.2",
     "ioredis": "^4.28.2",
     "ramda": "^0.27.1"
   }

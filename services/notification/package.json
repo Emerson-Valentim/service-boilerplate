@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@socket.io/redis-adapter": "^7.1.0",
-    "evs-tools": "^0.0.1",
+    "evs-tools": "^0.0.2",
     "ramda": "^0.27.1",
     "redis": "^4.0.2",
     "socket.io": "^4.4.0"

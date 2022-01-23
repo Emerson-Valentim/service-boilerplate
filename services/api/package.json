@@ -23,7 +23,7 @@
   "dependencies": {
     "apollo-server": "^3.5.0",
     "apollo-server-lambda": "^3.6.0",
-    "evs-tools": "^0.0.1",
+    "evs-tools": "^0.0.2",
     "graphql": "^16.2.0",
     "ramda": "^0.27.1"
   }
