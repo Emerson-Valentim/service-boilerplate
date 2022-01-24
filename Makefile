@@ -2,7 +2,7 @@ up: consumer worker api notification
 
 worker: redis bull
 
-consumer: kafka zookeeper app
+consumer: kafka zookeeper kafdrop app
 
 redis:
 	docker-compose up -d redis
@@ -24,3 +24,6 @@ api:
 
 notification:
 	docker-compose up -d socket
+
+kafdrop:
+	docker-compose up -d kafdrop
