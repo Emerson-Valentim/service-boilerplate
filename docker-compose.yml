@@ -42,11 +42,13 @@ services:
   # Kafdrop configuration
   kafdrop:
     image: obsidiandynamics/kafdrop:latest
+    networks:
+      - consumer
     restart: "no"
     ports:
       - "9000:9000"
     environment:
-      KAFKA_BROKERCONNECT: "host.docker.internal:9094"
+      KAFKA_BROKERCONNECT: "kafka:9094"
       JVM_OPTS: "-Xms16M -Xmx48M -Xss180K -XX:-TieredCompilation -XX:+UseStringDeduplication -noverify"
     depends_on:
       - "kafka"
